@@ -14,7 +14,7 @@
 
 	"buttons": [
 		{
-			"id": "<custom ID for the button">, //optional; for authors wanting to trigger javascript from button clicks
+			"id": "<custom ID for the button>", //optional; for authors wanting to trigger javascript from button clicks
 
 			"image": "<button image filename>",
 			"imageHover": "<button hover image filename>", //optional
