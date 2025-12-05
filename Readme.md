@@ -7,6 +7,9 @@ your browser.
 If you are a member of Biome Collective and would like to add a room to the
 labyrinth, contact Niall on discord or slack.
 
+If you want to create your own labyrinth using this code, just clone the
+repository and delete the contents of the `rooms` folder.
+
 # Adding a Room to the Labyrinth
 Rooms consist of a background image and one or more smaller images which can be
 used as buttons to navigate to other rooms, or any web URL.
