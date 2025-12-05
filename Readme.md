@@ -46,6 +46,6 @@ labyrinth:
   be percentages relative to the size of the background image.
 - The labyrinth should be accessible via screen reader. Alt text and ARIA
   descriptors should be used wherever appropriate.
-		- Related: all labyrinth elements should be standard HTML elements to
-		  ensure screen readers understand them and they can be navigated via
-		  keyboard (tab).
+	- Related: all labyrinth elements should be standard HTML elements to
+	  ensure screen readers understand them and they can be navigated via
+	  keyboard (tab).
