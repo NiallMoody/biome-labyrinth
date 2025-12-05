@@ -1,6 +1,6 @@
 Biome Gallery 2 ToDo
 --------------------
-- Better name!
+- What license are we using?
 - Background image for body?
 - Alt text for buttons now we're using background-image?
 	- Not sure this is possible; but the tooltips should function similarly?
