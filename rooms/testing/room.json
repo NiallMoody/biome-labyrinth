@@ -19,8 +19,22 @@
 			"tooltip": "Enter the labyrinth!",
 			"left": "42",
 			"top": "77.2",
-			"width": "15.2",
-			"height": "19.4"
+			"width": "15.208333333333332",
+			"height": "19.444444444444446"
+		},
+		{
+			"id": "lobbyButton",
+			"image": "button.png",
+			"imageHover": "buttonHover.png",
+			"imageDown": "buttonDown.png",
+			"imageAltText": "Back to the lobbby!!!",
+			"pixelArt": true,
+			"destination": "room:lobby",
+			"tooltip": "Back to the lobby!",
+			"left": "72.91666666666666",
+			"top": "76.66666666666667",
+			"width": "15.208333333333332",
+			"height": "19.444444444444446"
 		}
 	]
 }

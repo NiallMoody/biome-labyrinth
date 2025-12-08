@@ -278,6 +278,12 @@ function addButtonControls(data) {
 
 		document.getElementById(`${idBase}-imageLabel`).innerHTML = event.target.files[0].name;
 	});
+	container.querySelector(`#${idBase}-imageHover`).addEventListener("change", () => {
+		document.getElementById(`${idBase}-imageHoverLabel`).innerHTML = event.target.files[0].name;
+	});
+	container.querySelector(`#${idBase}-imageDown`).addEventListener("change", () => {
+		document.getElementById(`${idBase}-imageDownLabel`).innerHTML = event.target.files[0].name;
+	});
 
 	container.querySelector(`#${idBase}-pixelArt`).addEventListener("change", () => {
 		let button = document.getElementById(idBase);
@@ -357,8 +363,8 @@ function addButton(data) {
 
 	//Update our size relative to the room image.
 	button.addEventListener("load", function() {
-		button.relativeWidth = this.naturalWidth/roomWidth;
-		button.relativeHeight = this.naturalHeight/roomHeight;
+		button.relativeWidth = (this.naturalWidth/roomWidth) * 100;
+		button.relativeHeight = (this.naturalHeight/roomHeight) * 100;
 
 		let buttonWidth = document.getElementById(`${button.id}-width`);
 		let buttonHeight = document.getElementById(`${button.id}-height`);
@@ -419,8 +425,10 @@ function saveRoom() {
 	roomObj.buttons = new Array();
 
 	buttons.forEach((button) => {
-		const currentId = button.id;
+		const currentId = button.id.substring(0, button.id.indexOf("-"));
 		let buttonObj = new Object();
+
+		console.log(currentId);
 
 		buttonObj.id = document.getElementById(`${currentId}-buttonId`).value;
 
