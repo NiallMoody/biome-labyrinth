@@ -6,6 +6,11 @@ Biome Gallery 2 ToDo
 	- Not sure this is possible; but the tooltips should function similarly?
 - Implement room editor:
 	- Implement draggable button in room
+		- Div with background-image set to button image
+		- Positioned top left in % relative to parent div
+		- When added calculate size in % relative to parent div size
+		- Responds to drag events to set position
+			- Update inspector when moved
 	- Drag and drop into room div:
 		- First image dropped is automatically set as the background
 		- If there is a background, all future images are assumed to be buttons:
