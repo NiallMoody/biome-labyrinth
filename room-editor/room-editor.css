@@ -24,16 +24,19 @@ body {
 
 #main {
 	width: max-content;
+	padding: 0;
+	margin: 0;
 }
 
 #inspector {
 	padding: 8px;
-	margin: 0px 4px 0px 0px;
-	width: 288px;
+	width: 320px;
 	background-color: #f1e9df;
 	resize: horizontal;
-	overflow: auto;
+	overflow-y: scroll;
 	float: left;
+	height: 100vh;
+	box-sizing: border-box;
 }
 
 .inspectorParam {
@@ -41,6 +44,7 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	margin: 2px 0px 2px 0px;
+	height: 30px;
 }
 
 #background {

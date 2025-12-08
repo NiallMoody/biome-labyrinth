@@ -210,6 +210,12 @@ function addButtonControls(data) {
 				<input type="text" name="button${buttonId}-height" id="button${buttonId}-height"></input>`;
 	});
 
+	//Delete button.
+	addInspectorParam(container, () => {
+		return `<label for="button${buttonId}-delete">&nbsp;</label>
+				<button class="fileSelect" type="button" id="button${buttonId}-delete">Delete</button>`;
+	});
+
 	//If data is not empty, fill out the various parameters.
 	if(data != null) {
 		runIfPresent(data, "id", () => {
@@ -256,6 +262,15 @@ function addButtonControls(data) {
 
 	inspectorButtons.appendChild(container);
 
+	//Add event listeners.
+	{
+		container.querySelector(`#button${buttonId}-delete`).addEventListener("click", () => {
+			//TODO: remove button from room.
+
+			container.remove();
+		});
+	}
+
 	++buttonId;
 }
 
@@ -298,9 +313,37 @@ function saveRoom() {
 	roomObj.author = document.getElementById("author").value;
 	roomObj.authorLink = document.getElementById("authorLink").value;
 
+	const buttonContainer = document.getElementById("inspectorButtons");
+	const buttons = buttonContainer.querySelectorAll("details");
+
+	roomObj.buttons = new Array();
+
+	buttons.forEach((button) => {
+		const currentId = button.id;
+		let buttonObj = new Object();
+
+		buttonObj.id = document.getElementById(`${currentId}-buttonId`).value;
+
+		buttonObj.image = document.getElementById(`${currentId}-imageLabel`).innerHTML;
+		buttonObj.imageHover = document.getElementById(`${currentId}-imageHoverLabel`).innerHTML;
+		buttonObj.imageDown = document.getElementById(`${currentId}-imageDownLabel`).innerHTML;
+		buttonObj.imageAltText = document.getElementById(`${currentId}-imageAltText`).value;
+		buttonObj.pixelArt = document.getElementById(`${currentId}-pixelArt`).checked;
+
+		buttonObj.destination = document.getElementById(`${currentId}-destination`).value;
+		buttonObj.tooltip = document.getElementById(`${currentId}-tooltip`).value;
+
+		buttonObj.left = document.getElementById(`${currentId}-left`).value;
+		buttonObj.top = document.getElementById(`${currentId}-top`).value;
+		buttonObj.width = document.getElementById(`${currentId}-width`).value;
+		buttonObj.height = document.getElementById(`${currentId}-height`).value;
+
+		roomObj.buttons.push(buttonObj);
+	});
+
 	console.log(roomObj);
 
-	let roomJson = JSON.stringify(roomObj);
+	let roomJson = JSON.stringify(roomObj, null, "\t");
 	let blob = new Blob([roomJson], {type: "text/plain;charset=utf-8"});
 	saveAs(blob, `room.json`);
 }
