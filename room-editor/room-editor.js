@@ -133,7 +133,7 @@ function addButtonControls(data) {
 	if(data == null)
 		container.open = true;
 
-	summary.id = `{${idBase}-summary}`;
+	summary.id = `${idBase}-summary`;
 	summary.innerHTML = `${buttonId}`;
 
 	container.appendChild(summary);
@@ -267,6 +267,10 @@ function addButtonControls(data) {
 	inspectorButtons.appendChild(container);
 
 	//Add event listeners.
+	container.querySelector(`#${idBase}-buttonId`).addEventListener("change", () => {
+		document.getElementById(`${idBase}-summary`).innerHTML = document.getElementById(`${idBase}-buttonId`).value;
+	});
+
 	container.querySelector(`#${idBase}-image`).addEventListener("change", () => {
 		let button = document.getElementById(idBase);
 
@@ -342,6 +346,7 @@ function addButton(data) {
 		});
 	}
 
+	//Update our size relative to the room image.
 	button.addEventListener("load", function() {
 		button.relativeWidth = this.naturalWidth/roomWidth;
 		button.relativeHeight = this.naturalHeight/roomHeight;

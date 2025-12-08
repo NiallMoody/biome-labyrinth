@@ -5,6 +5,8 @@ Biome Gallery 2 ToDo
 - Alt text for buttons now we're using background-image?
 	- Not sure this is possible; but the tooltips should function similarly?
 - Implement room editor:
+	- Hook up button pixel art checkbox
+	- Verify everything works when you create buttons and save them to room.json
 	- Drag and drop into room div:
 		- First image dropped is automatically set as the background
 		- If there is a background, all future images are assumed to be buttons:
