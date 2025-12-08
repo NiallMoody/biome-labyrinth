@@ -279,6 +279,15 @@ function addButtonControls(data) {
 		document.getElementById(`${idBase}-imageLabel`).innerHTML = event.target.files[0].name;
 	});
 
+	container.querySelector(`#${idBase}-pixelArt`).addEventListener("change", () => {
+		let button = document.getElementById(idBase);
+
+		if(container.querySelector(`#${idBase}-pixelArt`).checked)
+			button.style.imageRendering = "crisp-edges";
+		else
+			button.style.imageRendering = "auto";
+	});
+
 	container.querySelector(`#${idBase}-delete`).addEventListener("click", () => {
 		document.getElementById(idBase).remove();
 
