@@ -23,6 +23,23 @@ function addInspectorParam(parent, code) {
 
 	parent.appendChild(paramDiv);
 }
+
+//Adds a 'beforeinput' event listener to limit characters allowed in text input
+//boxes (passed-in regexp defines which characters are allowed).
+function limitInput(inputElement, regexp) {
+	inputElement.addEventListener("beforeinput", (event) => {
+		if(event.data != null) {
+			let rx = new RegExp(regexp);
+
+			console.log(`${event.data} : ${regexp} : ${rx.test(event.data)}`);
+
+			if(!rx.test(event.data)) {
+				event.preventDefault();
+			}
+		}
+	});
+}
+
 //-- Directory requester -------------------------------------------------------
 //Adds the directory request dialog on page load if we need it.
 function createDirectoryRequester() {
@@ -304,6 +321,12 @@ function addButtonControls(data) {
 
 		container.remove();
 	});
+	
+	limitInput(container.querySelector(`#${idBase}-destination`), "^[^\\s]*$");
+	limitInput(container.querySelector(`#${idBase}-left`), "^[0-9.]*$");
+	limitInput(container.querySelector(`#${idBase}-top`), "^[0-9.]*$");
+	limitInput(container.querySelector(`#${idBase}-width`), "^[0-9.]*$");
+	limitInput(container.querySelector(`#${idBase}-height`), "^[0-9.]*$");
 
 	++buttonId;
 }

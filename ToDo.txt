@@ -6,9 +6,6 @@ Biome Gallery 2 ToDo
 	- Not sure this is possible; but the tooltips should function similarly?
 - Implement room editor:
 	- Zoom in/out buttons for the room
-	- Restrict text editors to specific characters (no spaces for button IDs,
-	  only numbers for positions/sizes, no spaces for URLs)
-		- Use `beforeinput` event to do this
 	- Update button position, size when changing left/top/width/height in
 	  inspector
 - Tooltips persist on mobile after clicking buttons
