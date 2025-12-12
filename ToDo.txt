@@ -12,3 +12,4 @@ Biome Gallery 2 ToDo
 	  inspector
 - Tooltips persist on mobile after clicking buttons
 - Update title with current room name
+- Better css for things like tooltips, room editor inspector
